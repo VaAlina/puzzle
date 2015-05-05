@@ -1,0 +1,22 @@
+body{
+background-color: #eee;
+}
+
+.pazzlePartHolder{
+width: 50px;
+height: 50px;
+overflow: hidden;
+}
+
+.topOfTheRow{
+float: left;
+display: inline-block;
+display: inline;
+}
+
+#pazzleHolder{
+margin-left: 25%;
+border: 2px solid black;
+width: 600px;
+height: 600px;
+}
