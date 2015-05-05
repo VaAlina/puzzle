@@ -27,7 +27,7 @@ var cellSize = 50, //Размер ячейки.
 	}
 	$("body").append("</div>");
 
-    $(".pazzlePartHolder").each(function(indx, element){//Поместить на случайную позицию окна браузера.
+    $(".pazzlePartHolder").each(function(indx, element){//Поместить на случайную позицию окна браузера блоки с пазлами.
         $(this).css({top: getYPositionOfElement(), left: getXPositionOfElement()})
     });
 
