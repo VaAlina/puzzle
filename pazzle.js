@@ -8,6 +8,19 @@ var cellSize = 50, //Размер ячейки.
 	cellAmount = rowAmountConst*10, //Общее количество ячеек.
 	horizontalIndent = 0,//Горизонтальный отступ.
 	verticalIndent = 0;//Вертикальный отступ.
+	
+function getXPositionOfElement() {//Получить случайные координаты x окна браузера.
+    var x_position = Math.floor(Math.random() * $( "#pazzleHolder" ).width());
+    return x_position;
+}
+	
+function getYPositionOfElement() {//Получить случайные координаты y окна браузера.
+    var y_position = Math.floor(Math.random() * $( "#pazzleHolder" ).height());
+    return y_position;
+}
+	
+	
+	
 	//$(".pazzlePartHolder").css({"width":cellSize+"px", "height":cellSize+"px"});//Функция работает некорректно.
     $("body").append("<div id='pazzleHolder'>");//Открыть div, содержащий весь пазл.
     for(var currentCell=0; currentCell<cellAmount; currentCell++){//Пока, текущая ячейка меньше общего количества ячеек.
@@ -34,14 +47,3 @@ var cellSize = 50, //Размер ячейки.
     $(document).ready(function(){//Сделать все блоки перемещаемыми.
 	$( ".draggable" ).draggable();
     });
-	
-	function getXPositionOfElement() {//Получить случайные координаты x окна браузера.
-        var x_position = Math.floor(Math.random() * window.innerWidth);
-	    return x_position;
-    }
-	
-	function getYPositionOfElement() {//Получить случайные координаты y окна браузера.
-        var y_position = Math.floor(Math.random() * window.innerHeight);
-	    return y_position;
-    }
-	
