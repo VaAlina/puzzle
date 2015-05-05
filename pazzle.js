@@ -24,6 +24,7 @@ var cellSize = 50, //Размер ячейки.
 		}
 		$(".block"+currentCell).css({'position': 'relative','top' : verticalIndent+"px",'left' : horizontalIndent+"px"});//Присвоить текущему элементу уникальную позицию.
 		verticalIndent = verticalIndent-cellSize;
+		$(".block"+currentCell).offset({ top: getYPositionOfElement(), left: getXPositionOfElement() });//Разместить ячейки в случайных координатах.
 	}
 	$("body").append("</div>");
 
@@ -39,12 +40,3 @@ var cellSize = 50, //Размер ячейки.
         var y_position = Math.floor(Math.random() * window.innerHeight);
 	    return y_position;
     }
-	
-	function putPazzleInRandomXYCoordinats(){//Поместить в случайные координаты (см. функция getXPositionOfElement()) элементы массива в цикле.
-	    for(var k=0; k<100; k++){//Функция не видит переменную, cellAmount. Нужно создать функцию, которая её замещает(при запросе кол-ва ячеек, например).
-			getXPositionOfElement();
-			getYPositionOfElement();
-			$("div.block"+k).offset({ top: y_position, left: x_position });
-			alert(y_position);
-		}
-	}
