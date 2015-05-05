@@ -11,7 +11,7 @@ var cellSize = 50, //Размер ячейки.
 	//$(".pazzlePartHolder").css({"width":cellSize+"px", "height":cellSize+"px"});//Функция работает некорректно.
     $("body").append("<div id='pazzleHolder'>");//Открыть div, содержащий весь пазл.
     for(var currentCell=0; currentCell<cellAmount; currentCell++){//Пока, текущая ячейка меньше общего количества ячеек.
-	    $("div#pazzleHolder").append("<div id="+currentCell+" class='pazzlePartHolder'></div>");//Добавить блок, содержащий часть пазла.
+	    $("div#pazzleHolder").append("<div id="+currentCell+" class='pazzlePartHolder draggable'></div>");//Добавить блок, содержащий часть пазла.
         $("div#"+currentCell).append("<img src='wallpaper.jpg' class='"+"block"+currentCell+"' alt='img' />");//В этот блок добавить img и присвоить уникальный класс "block"+i+.
 		if(currentCell==0){//Если отображается первая ячейка, то задать ей нулевое смещение вверх. 
 		    $(".block"+currentCell).css({'position': 'relative','top' : 0+"px",'left' : 0+"px", 'padding':'0px'});
@@ -23,13 +23,17 @@ var cellSize = 50, //Размер ячейки.
 			$(currentCell).addClass("topOfTheRow");//Присвоить класс текущему элементу, благодаря чему, в стилях можно будет задать display: inline-block;, для данного класса.
 		}
 		$(".block"+currentCell).css({'position': 'relative','top' : verticalIndent+"px",'left' : horizontalIndent+"px"});//Присвоить текущему элементу уникальную позицию.
+		$(".block"+currentCell).offset({ top: getYPositionOfElement(), left: getXPositionOfElement() });
 		verticalIndent = verticalIndent-cellSize;
-		$(".block"+currentCell).offset({ top: getYPositionOfElement(), left: getXPositionOfElement() });//Разместить ячейки в случайных координатах.
 	}
 	$("body").append("</div>");
 
 	
 });
+
+    $(document).ready(function(){//Сделать все блоки перемещаемыми.
+	$( ".draggable" ).draggable();
+    });
 	
 	function getXPositionOfElement() {//Получить случайные координаты x окна браузера.
         var x_position = Math.floor(Math.random() * window.innerWidth);
@@ -40,3 +44,4 @@ var cellSize = 50, //Размер ячейки.
         var y_position = Math.floor(Math.random() * window.innerHeight);
 	    return y_position;
     }
+	
