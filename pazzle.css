@@ -3,10 +3,11 @@ background-color: #eee;
 }
 
 .pazzlePartHolder{
+z-index: 1000;
 width: 50px;
 height: 50px;
 overflow: hidden;
- position: absolute;
+display: inline-block;
 }
 
 .topOfTheRow{
@@ -16,6 +17,7 @@ display: inline;
 }
 
 #pazzleHolder{
+z-index: 0;
 margin-left: 25%;
 border: 2px solid black;
 width: 600px;
